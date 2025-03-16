@@ -1,5 +1,3 @@
-Here's a formatted version of your content suitable for a GitHub README file:
-
 ---
 
 # ESP32-S3-EYE Camera System with MQTT Connectivity
