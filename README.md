@@ -6,18 +6,19 @@ Camera Configuration
 •	Uses ESP32-S3-EYE's OV2640 camera (2MP, 1600x1200 max resolution)5
 •	Requires PSRAM configuration in menuconfig (8MB Octal PSRAM present)15
 •	Pin assignments defined in camera_pins.h for ESP32-S3-EYE model:
-cpp
-#define CAMERA_MODEL_ESP32S3_EYE
-#include "camera_pins.h"
-2.	Image Capture Optimization:
+
+  cpp
+  #define CAMERA_MODEL_ESP32S3_EYE
+  #include "camera_pins.h"
+3.	Image Capture Optimization:
 •	Uses JPEG compression with quality setting 10 (PSRAM detected):
-cpp
-config.jpeg_quality = 10;  // PSRAM available
-config.frame_size = FRAMESIZE_SVGA;  // 800x600 resolution
-config.grab_mode = CAMERA_GRAB_LATEST;
+  cpp
+  config.jpeg_quality = 10;  // PSRAM available
+  config.frame_size = FRAMESIZE_SVGA;  // 800x600 resolution
+  config.grab_mode = CAMERA_GRAB_LATEST;
 •	Falls back to VGA (640x480) without PSRAM14
 
-Certainly! I'll continue the technical analysis and implementation guide for the ESP32-S3-EYE camera system with MQTT connectivity:
+Technical analysis and implementation guide for the ESP32-S3-EYE camera system with MQTT connectivity:
 Wi-Fi/MQTT Integration
 •	Implements dual connectivity: Wi-Fi and MQTT
 •	Uses PubSubClient library for MQTT communication
@@ -34,7 +35,7 @@ Image Capture and Streaming
 o	Triggered by MQTT command or button press
 o	Captures image, encodes to Base64, and publishes to MQTT
 o	Uses LED indicator (ws2812) for capture status
-2.	Live Streaming:
+3.	Live Streaming:
 o	Implements a simple streaming mechanism at ~20 fps
 o	Publishes Base64 encoded frames to "esp32cam/stream" topic
 o	Controlled by "Start Stream" and "Stop Stream" commands
