@@ -9,8 +9,8 @@
 #define BUTTON_PIN  0
 
 // WiFi credentials
-const char* ssid = "Rohith's S23";
-const char* password = "12346789";
+const char* ssid = "Your wifi ssid";
+const char* password = "wifi password";
 
 // MQTT Broker details
 const char* mqtt_server = "test.mosquitto.org";
